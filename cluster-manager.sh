@@ -3,8 +3,8 @@
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 if [ "$#" -eq 1 ] && [ $1 == 'create' ]; then
 	JUPYTER_TOKEN=$(openssl rand -hex 16)
-	# Keeping this for 3. We cannot go beyond 3
-	NUM_WORKERS=3
+	# Keep this as 1 for development. Never go beyond 4
+	NUM_WORKERS=1
 	cat $BASEDIR/spark-cluster.yaml.template | sed -e "s/\$JUPYTER_TOKEN/$JUPYTER_TOKEN/" -e "s/\$NUM_WORKERS/$NUM_WORKERS/"  > $BASEDIR/spark-cluster.yaml
 	echo $JUPYTER_TOKEN > $BASEDIR/jupyter_token
 	status=$(cat $BASEDIR/spark-cluster.yaml | kubectl create -f - 2>&1 | grep Error)
