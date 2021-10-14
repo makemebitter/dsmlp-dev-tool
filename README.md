@@ -12,7 +12,7 @@ spark-cluster.yaml.template # Kubernetes template required by cluster-manager.sh
 DSMLP_spark.pdf # Step-to-step guide of spwaning a Spark cluster on DSMLP
 tex # Src tex file for DSMLP_spark.pdf
 docker # Directory for the docker files
-|--	Dockerfile # The docker file, bootstrap script
+|-- Dockerfile # The docker file, bootstrap script
 |-- common.sh # Startup steps that are common for both master and workers
 |-- spark-master # Startup script for master
 |-- spark-worker # startup script for workers
